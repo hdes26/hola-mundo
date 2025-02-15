@@ -1,4 +1,4 @@
-import { initRouter } from "./router.js";
+const { initRouter } = require("./router.js");
 
 (() => {
     // Crear la estructura base del HTML
@@ -9,5 +9,5 @@ import { initRouter } from "./router.js";
 
 
     // Iniciar el enrutador
-    initRouter();
+    initRouter()
 })();

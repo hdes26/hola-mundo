@@ -1,5 +1,5 @@
-import Home from "./pages/home.js";
-import About from "./pages/about.js";
+const Home = require("./pages/home.js");
+const About = require("./pages/about.js");
 
 const routes = {
     "/": Home,
