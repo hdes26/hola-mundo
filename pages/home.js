@@ -19,34 +19,3 @@ export default function Home() {
         </div>
     `;
 }
-
-// Eventos del formulario
-export function homeEvents() {
-    document.getElementById("couponForm")?.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const formData = {
-            nombre: document.getElementById("nombre").value,
-            correo: document.getElementById("correo").value,
-            telefono: document.getElementById("telefono").value,
-        };
-
-        console.log("Datos enviados:", formData);
-        alert("Cupón solicitado con éxito");
-    });
-}
-
-function loadCSS(url) {
-    console.log("test");
-    
-    if (!document.querySelector(`link[href="${url}"]`)) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = url;
-        document.head.appendChild(link);
-    }
-}
-
-// Cargar estilos globales
-loadCSS("../styles/home.css");
-
