@@ -37,6 +37,8 @@ export function homeEvents() {
 }
 
 function loadCSS(url) {
+    console.log("test");
+    
     if (!document.querySelector(`link[href="${url}"]`)) {
         const link = document.createElement("link");
         link.rel = "stylesheet";
