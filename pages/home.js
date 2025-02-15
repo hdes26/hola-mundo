@@ -37,10 +37,10 @@ export function homeEvents() {
 }
 
 function loadCSS(url) {
-    if (!document.querySelector(`link[href="${url}"]`)) {
+    if (!document.querySelector(`link[href^="${url}"]`)) {
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = url;
+        link.href = `${url}?v=${new Date().getTime()}`;  // Evita caché
         document.head.appendChild(link);
     }
 }
