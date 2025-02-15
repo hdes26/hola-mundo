@@ -1,5 +1,93 @@
 export default function Home() {
     return `
+        <style>
+            /* ==== Reset básico ==== */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html, body {
+                height: 100%;
+                font-family: Arial, sans-serif;
+            }
+
+            /* Fondo de pantalla completa */
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: url("https://i.imgur.com/K4ffkXt.jpeg") no-repeat center center / cover;
+            }
+
+            .container {
+                min-height: 80vh;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .form-wrapper {
+                font-size: 18px;
+                background: rgba(255, 255, 255, 0.85);
+                border-radius: 20px;
+                padding: 50px 40px;
+                max-width: 700px;
+                width: 100%;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .form-wrapper h1 {
+                margin-bottom: 20px;
+                color: #333;
+                font-weight: bold;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+                color: #333;
+                text-align: left;
+            }
+
+            input {
+                width: 100%;
+                margin-bottom: 16px;
+                padding: 14px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+            }
+
+            .submit-button {
+                background: linear-gradient(45deg, #f70000, #ff0000);
+                border: none;
+                border-radius: 25px;
+                color: #fff;
+                cursor: pointer;
+                display: block;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 10px;
+                padding: 15px 30px;
+                text-align: center;
+                text-decoration: none;
+                transition: transform 0.3s, box-shadow 0.3s;
+                width: 100%;
+            }
+
+            .submit-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 20px rgba(142, 68, 173, 0.5);
+            }
+        </style>
+
         <div class="container">
             <div class="form-wrapper">
                 <h1>Completa tus datos para obtener tu cupón</h1>
@@ -20,6 +108,7 @@ export default function Home() {
     `;
 }
 
+
 // Eventos del formulario
 export function homeEvents() {
     document.getElementById("couponForm")?.addEventListener("submit", function (e) {
@@ -35,15 +124,3 @@ export function homeEvents() {
         alert("Cupón solicitado con éxito");
     });
 }
-
-function loadCSS(url) {
-    if (!document.querySelector(`link[href^="${url}"]`)) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = `${url}?v=${new Date().getTime()}`;  // Evita caché
-        document.head.appendChild(link);
-    }
-}
-
-// Cargar estilos globales
-loadCSS("/styles/home.css");
