@@ -91,7 +91,7 @@ export default function Home() {
         <div class="container">
             <div class="form-wrapper">
                 <h1>Completa tus datos para obtener tu cupón</h1>
-                <form id="couponForm">
+                <form id="couponForm" method="POST" action="javascript:void(0);>
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" required />
 
