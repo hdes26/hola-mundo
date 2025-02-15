@@ -46,4 +46,4 @@ function loadCSS(url) {
 }
 
 // Cargar estilos globales
-loadCSS("../styles/home.css");
+loadCSS("/styles/home.css");
