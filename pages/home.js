@@ -1,5 +1,4 @@
 export default function Home() {
-    homeEvents()
     return `
         <style>
             /* ==== Reset básico ==== */
@@ -106,22 +105,27 @@ export default function Home() {
                 </form>
             </div>
         </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.getElementById("couponForm");
+
+                form.onsubmit = function (e) {
+                    e.preventDefault(); // Evita que la página se recargue
+
+                    const formData = {
+                        nombre: document.getElementById("nombre").value,
+                        correo: document.getElementById("correo").value,
+                        telefono: document.getElementById("telefono").value,
+                    };
+
+                    console.log("Datos enviados:", formData);
+                    alert("Cupón solicitado con éxito");
+
+                    // Redirigir a la página de éxito
+                    window.location.href = "success.html";
+                };
+            });
+        </script>
     `;
-}
-
-
-// Eventos del formulario
-export function homeEvents() {
-    document.getElementById("couponForm")?.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const formData = {
-            nombre: document.getElementById("nombre").value,
-            correo: document.getElementById("correo").value,
-            telefono: document.getElementById("telefono").value,
-        };
-
-        console.log("Datos enviados:", formData);
-        alert("Cupón solicitado con éxito");
-    });
 }
