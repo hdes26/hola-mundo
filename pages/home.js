@@ -107,7 +107,6 @@ export default function Home() {
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
                 const form = document.getElementById("couponForm");
 
                 form.onsubmit = function (e) {
@@ -125,7 +124,6 @@ export default function Home() {
                     // Redirigir a la página de éxito
                     window.location.href = "success.html";
                 };
-            });
         </script>
     `;
 }
