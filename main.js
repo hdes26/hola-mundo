@@ -1,9 +1,9 @@
-const { initRouter } = require("./router.js");
+import {initRouter} from './router.js';
 
 (() => {
     // Crear la estructura base del HTML
     document.body.innerHTML = `
-        <div id="app">HOLA</div>
+        <div id="app"></div>
     `;
 
 
