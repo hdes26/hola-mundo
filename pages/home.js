@@ -1,4 +1,5 @@
 export default function Home() {
+    homeEvents()
     return `
         <style>
             /* ==== Reset básico ==== */
