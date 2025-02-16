@@ -107,27 +107,23 @@ export default function Home() {
         </div>
 
      <script>
-        // Asegurarse de que el DOM esté completamente cargado
-        document.addEventListener("DOMContentLoaded", function() {
-            // Obtener el botón por su id
+        // Asegurarse de que el DOM esté completamente cargado antes de agregar el evento
+        window.onload = function() {
             const submitButton = document.getElementById("submitBtn");
 
-            // Comprobar si el botón existe antes de agregar el evento
+            // Verificar que el botón esté presente en el DOM
             if (submitButton) {
-                // Agregar un evento de tipo click
-                submitButton.onclick = function() {
-                    // Obtener los valores de los campos del formulario
+                submitButton.addEventListener("click", function() {
                     const nombre = document.getElementById("nombre").value;
                     const correo = document.getElementById("correo").value;
                     const telefono = document.getElementById("telefono").value;
 
-                    // Validar si todos los campos están completos
+                    // Validación simple para asegurarse de que todos los campos estén completos
                     if (!nombre || !correo || !telefono) {
                         alert("Por favor, completa todos los campos.");
                         return;
                     }
 
-                    // Crear un objeto con los datos del formulario
                     const formData = {
                         nombre: nombre,
                         correo: correo,
@@ -137,11 +133,13 @@ export default function Home() {
                     console.log("Datos enviados:", formData);
                     alert("Cupón solicitado con éxito");
 
-                    // Redirigir a una página de éxito
+                    // Redirigir a la página de éxito
                     window.location.href = "success.html";
-                };
+                });
+            } else {
+                console.error("Botón no encontrado");
             }
-        });
+        };
     </script>
     `;
 }
