@@ -112,7 +112,7 @@ export function addHomeEvents() {
             console.log("Datos enviados a Telegram:", { nombre, correo, telefono });
 
             // 6️⃣ Redirigir a página de éxito (opcional)
-            history.pushState(null, "", "/about");
+            history.pushState(null, "", "/gracias");
             initRouter();
 
         } catch (error) {
