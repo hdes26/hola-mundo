@@ -101,10 +101,9 @@ export function addHomeEvents() {
             }
 
             console.log("Datos enviados a Telegram:", { nombre, correo, telefono });
-            alert("Cupón solicitado con éxito");
 
             // 6️⃣ Redirigir a página de éxito (opcional)
-            window.location.href = "gracias.html";
+            window.location.href = "/about";
 
         } catch (error) {
             console.error("Error al enviar los datos:", error);
