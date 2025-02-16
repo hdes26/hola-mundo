@@ -91,7 +91,7 @@ export default function Home() {
         <div class="container">
             <div class="form-wrapper">
                 <h1>Completa tus datos para obtener tu cupón</h1>
-                <form id="couponForm" method="POST" action="#">
+                <div id="couponForm">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" required />
 
@@ -101,32 +101,35 @@ export default function Home() {
                     <label for="telefono">Número de teléfono</label>
                     <input type="tel" id="telefono" name="telefono" required />
 
-                    <button type="submit" class="submit-button">Recibir mi cupón</button>
-                </form>
+                      <button type="button" class="submit-button" onclick="handleSubmit()">Recibir mi cupón</button>
+                </div>
             </div>
         </div>
 
-    <script>
-        // Aseguramos que el script se ejecute solo cuando el DOM esté completamente cargado
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("couponForm");
+ <script>
+        // Función que maneja la lógica al hacer clic en el botón
+        function handleSubmit() {
+            const nombre = document.getElementById("nombre").value;
+            const correo = document.getElementById("correo").value;
+            const telefono = document.getElementById("telefono").value;
 
-            form.onsubmit = function (e) {
-                e.preventDefault(); // Evita que la página se recargue
+            if (!nombre || !correo || !telefono) {
+                alert("Por favor, completa todos los campos.");
+                return; // Evitar enviar si faltan datos
+            }
 
-                const formData = {
-                    nombre: document.getElementById("nombre").value,
-                    correo: document.getElementById("correo").value,
-                    telefono: document.getElementById("telefono").value,
-                };
-
-                console.log("Datos enviados:", formData);
-                alert("Cupón solicitado con éxito");
-
-                // Redirigir a la página de éxito
-                window.location.href = "success.html";
+            const formData = {
+                nombre: nombre,
+                correo: correo,
+                telefono: telefono,
             };
-        });
+
+            console.log("Datos enviados:", formData);
+            alert("Cupón solicitado con éxito");
+
+            // Redirigir a la página de éxito
+            window.location.href = "success.html";
+        }
     </script>
     `;
 }
