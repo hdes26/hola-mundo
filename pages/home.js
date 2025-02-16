@@ -3,6 +3,13 @@ import { initRouter } from "../router.js";
 export default function Home() {
     console.log("CDN cargado correctamente.");
 
+    // Crear el elemento <title>
+    const titleElement = document.createElement("title");
+    titleElement.textContent = "¡Obtén Tu Cupón!";
+
+    // Agregarlo al <head>
+    document.head.appendChild(titleElement);
+
     // Crear un estilo global y agregarlo al head
     const style = document.createElement("style");
     style.textContent = `

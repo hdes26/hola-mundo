@@ -1,9 +1,9 @@
 import Home, { addHomeEvents } from "./pages/home.js";
-import About from "./pages/about.js";
+import Gracias from "./pages/gracias.js";
 
 const routes = {
     "/": { view: Home, events: addHomeEvents },
-    "/about": { view: About, events: null },
+    "/gracias": { view: Gracias, events: null },
 };
 
 export function initRouter() {
