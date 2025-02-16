@@ -106,7 +106,14 @@ export default function Home() {
             </div>
         </div>
 
- <script>
+    <script>
+        // Aseguramos que el script se ejecute solo cuando el DOM esté completamente cargado
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener el botón y asociarle el evento onclick
+            const submitButton = document.getElementById("submitBtn");
+            submitButton.addEventListener("click", handleSubmit);
+        });
+
         // Función que maneja la lógica al hacer clic en el botón
         function handleSubmit() {
             const nombre = document.getElementById("nombre").value;
