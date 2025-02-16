@@ -106,10 +106,11 @@ export default function Home() {
             </div>
         </div>
 
-     <script>
-        // Asegurarse de que el DOM esté completamente cargado antes de agregar el evento
-        window.onload = function() {
-        console.log("HOLA")
+   <script>
+        // Usamos setTimeout para esperar un poco antes de ejecutar el código
+        setTimeout(function() {
+            console.log("HOLA"); // Verificar si se ejecuta el log
+
             const submitButton = document.getElementById("submitBtn");
 
             // Verificar que el botón esté presente en el DOM
@@ -140,7 +141,7 @@ export default function Home() {
             } else {
                 console.error("Botón no encontrado");
             }
-        };
+        }, 500); // Espera de 500 ms
     </script>
     `;
 }
