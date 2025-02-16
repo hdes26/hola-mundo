@@ -101,31 +101,33 @@ export default function Home() {
                     <label for="telefono">Número de teléfono</label>
                     <input type="tel" id="telefono" name="telefono" required />
 
-                <button type="button" class="submit-button" id="submitBtn">Recibir mi cupón</button>
+                      <button type="button" class="submit-button" onclick="handleSubmit()">Recibir mi cupón</button>
                 </div>
             </div>
         </div>
 
      <script>
-        // Espera a que el DOM esté completamente cargado y luego agrega el evento al botón
+        // Asegurarse de que el DOM esté completamente cargado
         document.addEventListener("DOMContentLoaded", function() {
-            // Obtener el botón
+            // Obtener el botón por su id
             const submitButton = document.getElementById("submitBtn");
 
-            // Verifica que el botón exista antes de añadir el evento
-            if(submitButton) {
-                // Agregar evento 'click' al botón
-                submitButton.addEventListener("click", function() {
+            // Comprobar si el botón existe antes de agregar el evento
+            if (submitButton) {
+                // Agregar un evento de tipo click
+                submitButton.onclick = function() {
+                    // Obtener los valores de los campos del formulario
                     const nombre = document.getElementById("nombre").value;
                     const correo = document.getElementById("correo").value;
                     const telefono = document.getElementById("telefono").value;
 
-                    // Validación simple para asegurarse de que todos los campos estén completos
+                    // Validar si todos los campos están completos
                     if (!nombre || !correo || !telefono) {
                         alert("Por favor, completa todos los campos.");
                         return;
                     }
 
+                    // Crear un objeto con los datos del formulario
                     const formData = {
                         nombre: nombre,
                         correo: correo,
@@ -135,9 +137,9 @@ export default function Home() {
                     console.log("Datos enviados:", formData);
                     alert("Cupón solicitado con éxito");
 
-                    // Redirigir a la página de éxito
+                    // Redirigir a una página de éxito
                     window.location.href = "success.html";
-                });
+                };
             }
         });
     </script>
