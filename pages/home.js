@@ -106,9 +106,9 @@ export default function Home() {
             </div>
         </div>
 
-   <script>
-        // Usamos setTimeout para esperar un poco antes de ejecutar el código
-        setTimeout(function() {
+     <script>
+        // Aseguramos que el código JavaScript se ejecute después de que el DOM esté completamente cargado
+        document.addEventListener("DOMContentLoaded", function() {
             console.log("HOLA"); // Verificar si se ejecuta el log
 
             const submitButton = document.getElementById("submitBtn");
@@ -141,7 +141,7 @@ export default function Home() {
             } else {
                 console.error("Botón no encontrado");
             }
-        }, 500); // Espera de 500 ms
+        });
     </script>
     `;
 }
