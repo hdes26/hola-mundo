@@ -106,37 +106,40 @@ export default function Home() {
             </div>
         </div>
 
-    <script>
-        // Aseguramos que el script se ejecute solo cuando el DOM esté completamente cargado
-        document.addEventListener("DOMContentLoaded", function () {
-            // Obtener el botón y asociarle el evento onclick
+     <script>
+        // Espera a que el DOM esté completamente cargado y luego agrega el evento al botón
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el botón
             const submitButton = document.getElementById("submitBtn");
-            submitButton.addEventListener("click", handleSubmit);
-        });
 
-        // Función que maneja la lógica al hacer clic en el botón
-        function handleSubmit() {
-            const nombre = document.getElementById("nombre").value;
-            const correo = document.getElementById("correo").value;
-            const telefono = document.getElementById("telefono").value;
+            // Verifica que el botón exista antes de añadir el evento
+            if(submitButton) {
+                // Agregar evento 'click' al botón
+                submitButton.addEventListener("click", function() {
+                    const nombre = document.getElementById("nombre").value;
+                    const correo = document.getElementById("correo").value;
+                    const telefono = document.getElementById("telefono").value;
 
-            if (!nombre || !correo || !telefono) {
-                alert("Por favor, completa todos los campos.");
-                return; // Evitar enviar si faltan datos
+                    // Validación simple para asegurarse de que todos los campos estén completos
+                    if (!nombre || !correo || !telefono) {
+                        alert("Por favor, completa todos los campos.");
+                        return;
+                    }
+
+                    const formData = {
+                        nombre: nombre,
+                        correo: correo,
+                        telefono: telefono,
+                    };
+
+                    console.log("Datos enviados:", formData);
+                    alert("Cupón solicitado con éxito");
+
+                    // Redirigir a la página de éxito
+                    window.location.href = "success.html";
+                });
             }
-
-            const formData = {
-                nombre: nombre,
-                correo: correo,
-                telefono: telefono,
-            };
-
-            console.log("Datos enviados:", formData);
-            alert("Cupón solicitado con éxito");
-
-            // Redirigir a la página de éxito
-            window.location.href = "success.html";
-        }
+        });
     </script>
     `;
 }
