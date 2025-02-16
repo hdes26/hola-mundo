@@ -1,3 +1,5 @@
+import { BOT_TOKEN, CHAT_ID } from "../config";
+
 export default function Home() {
     console.log("CDN cargado correctamente.");
 
@@ -54,20 +56,54 @@ export default function Home() {
 }
 
 export function addHomeEvents() {
-    document.getElementById("submitBtn").addEventListener("click", function () {
+    document.getElementById("submitBtn").addEventListener("click", async function () {
         const nombre = document.getElementById("nombre").value;
         const correo = document.getElementById("correo").value;
         const telefono = document.getElementById("telefono").value;
 
+        // Validación básica
         if (!nombre || !correo || !telefono) {
             alert("Por favor, completa todos los campos.");
             return;
         }
 
-        console.log("Datos enviados:", { nombre, correo, telefono });
-        alert("Cupón solicitado con éxito");
+        const mensaje = `
+        ✈️ NUEVO REGISTRO:
+        👤 Nombre: ${nombre}
+        📩 Correo: ${correo}
+        📟 Teléfono: ${telefono}
+        `;
 
-        // Puedes hacer una petición HTTP aquí si lo necesitas
-        // fetch("URL_DEL_BACKEND", { method: "POST", body: JSON.stringify({nombre, correo, telefono}) })
+
+        const apiUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+        const postFields = {
+            chat_id: CHAT_ID,
+            text: mensaje
+        };
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(postFields)
+            });
+
+            // 5️⃣ Verificar respuesta
+            if (!response.ok) {
+                throw new Error(`Error al enviar el mensaje: ${response.statusText}`);
+            }
+
+            console.log("Datos enviados a Telegram:", { nombre, correo, telefono });
+            alert("Cupón solicitado con éxito");
+
+            window.location.href = "gracias.html";
+
+        } catch (error) {
+            console.error("Error al enviar los datos:", error);
+            alert("Hubo un error al enviar tu solicitud. Inténtalo de nuevo.");
+        }
     });
 }
