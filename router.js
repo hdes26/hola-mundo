@@ -10,6 +10,7 @@ export function initRouter() {
     const render = () => {
         const path = window.location.pathname;
         const route = routes[path] || routes["/"];
+        console.log("Ruta actual:", path);
 
         document.getElementById("app").innerHTML = route.view();
 
