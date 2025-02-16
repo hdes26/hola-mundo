@@ -3,7 +3,7 @@ import About from "./pages/about.js";
 
 const routes = {
     "/": { view: Home, events: addHomeEvents },
-    "/about": About,
+    "/about": { view: About, events: null },
 };
 
 export function initRouter() {

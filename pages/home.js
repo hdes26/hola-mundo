@@ -103,7 +103,7 @@ export function addHomeEvents() {
             console.log("Datos enviados a Telegram:", { nombre, correo, telefono });
 
             // 6️⃣ Redirigir a página de éxito (opcional)
-            window.location.href = "about.html";
+            window.location.href = "/about";
 
         } catch (error) {
             console.error("Error al enviar los datos:", error);
