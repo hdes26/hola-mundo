@@ -101,7 +101,7 @@ export default function Home() {
                     <label for="telefono">Número de teléfono</label>
                     <input type="tel" id="telefono" name="telefono" required />
 
-                      <button type="button" class="submit-button" onclick="handleSubmit()">Recibir mi cupón</button>
+                <button type="button" class="submit-button" id="submitBtn">Recibir mi cupón</button>
                 </div>
             </div>
         </div>
