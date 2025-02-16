@@ -1,5 +1,3 @@
-import { BOT_TOKEN, CHAT_ID } from "../config";
-
 export default function Home() {
     console.log("CDN cargado correctamente.");
 
@@ -67,6 +65,7 @@ export function addHomeEvents() {
             return;
         }
 
+        // 1️⃣ Construir el mensaje
         const mensaje = `
         ✈️ NUEVO REGISTRO:
         👤 Nombre: ${nombre}
@@ -74,14 +73,19 @@ export function addHomeEvents() {
         📟 Teléfono: ${telefono}
         `;
 
+        // 2️⃣ Configurar datos para la API de Telegram
+        const botToken = "7959584991:AAEuDqY8YuOraJYWtpN0tdxWX_TquHkepJE"; // Reemplaza con tu token del bot
+        const chatId = "6298387261";     // Reemplaza con el ID del chat de Telegram
 
-        const apiUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
+        // 3️⃣ Configurar los datos para la solicitud POST
         const postFields = {
-            chat_id: CHAT_ID,
+            chat_id: chatId,
             text: mensaje
         };
 
+        // 4️⃣ Realizar la solicitud POST
         try {
             const response = await fetch(apiUrl, {
                 method: "POST",
@@ -99,6 +103,7 @@ export function addHomeEvents() {
             console.log("Datos enviados a Telegram:", { nombre, correo, telefono });
             alert("Cupón solicitado con éxito");
 
+            // 6️⃣ Redirigir a página de éxito (opcional)
             window.location.href = "gracias.html";
 
         } catch (error) {
