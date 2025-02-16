@@ -57,6 +57,8 @@ export default function Home() {
     const app = document.getElementById("app");
     if (app) {
         app.innerHTML = ""; // Limpiar contenido previo
+        console.log("hola");
+        
         app.appendChild(container);
     } else {
         console.error("No se encontró el elemento con id 'app'");
