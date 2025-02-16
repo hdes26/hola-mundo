@@ -60,6 +60,8 @@ export default function Home() {
         console.log("hola");
         
         app.appendChild(container);
+        console.log(app);
+        
     } else {
         console.error("No se encontró el elemento con id 'app'");
     }
