@@ -107,6 +107,8 @@ export default function Home() {
         </div>
 
      <script>
+                 console.log("HOLA"); // Verificar si se ejecuta el log
+
         // Aseguramos que el código JavaScript se ejecute después de que el DOM esté completamente cargado
         document.addEventListener("DOMContentLoaded", function() {
             console.log("HOLA"); // Verificar si se ejecuta el log
