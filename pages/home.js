@@ -1,3 +1,5 @@
+import { initRouter } from "../router";
+
 export default function Home() {
     console.log("CDN cargado correctamente.");
 
@@ -103,7 +105,8 @@ export function addHomeEvents() {
             console.log("Datos enviados a Telegram:", { nombre, correo, telefono });
 
             // 6️⃣ Redirigir a página de éxito (opcional)
-            window.location.href = "/about";
+            history.pushState(null, "", "/about");
+            initRouter();
 
         } catch (error) {
             console.error("Error al enviar los datos:", error);
