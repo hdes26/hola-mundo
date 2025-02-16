@@ -9,8 +9,11 @@ const routes = {
 export function initRouter() {
     const render = () => {
         const path = window.location.pathname;
-        const route = routes[path] || routes["/"];
         console.log("Ruta actual:", path);
+
+        const route = routes[path] || routes["/"];
+        console.log(route);
+        
 
         document.getElementById("app").innerHTML = route.view();
 
