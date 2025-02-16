@@ -1,8 +1,7 @@
 export default function Gracias() {
-    // Crear el elemento <title>
-    const titleElement = document.createElement("title");
-    titleElement.textContent = "¡Gracias por tu Registro!";
-    document.head.appendChild(titleElement);
+    // ACTUALIZAR el elemento <title>
+    document.title = "¡Gracias por tu Registro!";
+
 
     // Agregar Google Tag Manager
     const gtmScript = document.createElement("script");
