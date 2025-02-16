@@ -109,6 +109,7 @@ export default function Home() {
      <script>
         // Asegurarse de que el DOM esté completamente cargado antes de agregar el evento
         window.onload = function() {
+        console.log("HOLA")
             const submitButton = document.getElementById("submitBtn");
 
             // Verificar que el botón esté presente en el DOM
