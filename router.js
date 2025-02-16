@@ -1,16 +1,21 @@
-import Home from "./pages/home.js";
+import Home, { addHomeEvents } from "./pages/home.js";
 import About from "./pages/about.js";
 
 const routes = {
-    "/": Home,
+    "/": { view: Home, events: addHomeEvents },
     "/about": About,
 };
 
 export function initRouter() {
     const render = () => {
         const path = window.location.pathname;
-        const page = routes[path] || Home;
-        document.getElementById("app").innerHTML = page();
+        const route = routes[path] || routes["/"];
+
+        document.getElementById("app").innerHTML = route.view();
+
+        if (route.events) {
+            route.events();
+        }
     };
 
     window.onpopstate = render;

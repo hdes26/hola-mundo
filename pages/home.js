@@ -32,10 +32,8 @@ export default function Home() {
     `;
     document.head.appendChild(style);
 
-    // Crear la estructura del formulario
-    const container = document.createElement("div");
-    container.className = "container";
-    container.innerHTML = `
+    return `
+    <div class="container">
         <div class="form-wrapper">
             <h1>Completa tus datos para obtener tu cupón</h1>
             <div id="couponForm">
@@ -51,22 +49,11 @@ export default function Home() {
                 <button type="button" class="submit-button" id="submitBtn">Recibir mi cupón</button>
             </div>
         </div>
-    `;
+    </div>
+`;
+}
 
-    // Agregar el contenido al contenedor principal de la aplicación
-    const app = document.getElementById("app");
-    if (app) {
-        app.innerHTML = ""; // Limpiar contenido previo
-        console.log("hola");
-        
-        app.appendChild(container);
-        console.log(app);
-        
-    } else {
-        console.error("No se encontró el elemento con id 'app'");
-    }
-
-    // Agregar funcionalidad al botón
+export function addHomeEvents() {
     document.getElementById("submitBtn").addEventListener("click", function () {
         const nombre = document.getElementById("nombre").value;
         const correo = document.getElementById("correo").value;
