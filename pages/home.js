@@ -47,12 +47,6 @@ export default function Home() {
         <div class="form-wrapper">
             <h1>Completa tus datos para obtener tu cupón</h1>
             <div id="couponForm">
-              /*   <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required />
-                <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" name="correo" required />
-                <label for="telefono">Número de teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required /> */
                 <button type="button" class="submit-button" id="submitBtn">Recibir mi cupón</button>
             </div>
         </div>
