@@ -71,7 +71,7 @@ export default function Home() {
     return `
        <div class="container"> 
         <img  
-            src="img/K4ffkXt.jpeg"
+            src="https://i.imgur.com/K4ffkXt.jpeg"
 
 ✡️Uva🎸😇💸🤙👁️☀️✡️👑🔱🫅🤴, [20/2/2025 10:33]
 alt="Ofertas de Vuelos Nacionales"  
