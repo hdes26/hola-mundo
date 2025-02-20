@@ -11,32 +11,58 @@ export default function Home() {
     // Crear un estilo global y agregarlo al head
     const style = document.createElement("style");
     style.textContent = `
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { height: 100%; font-family: Arial, sans-serif; }
-        body {
-            display: flex; align-items: center; justify-content: center;
-            background: url("https://i.imgur.com/K4ffkXt.jpeg") no-repeat center center / cover;
-        }
-        .container { min-height: 80vh; display: flex; flex-direction: column; align-items: center; padding: 20px; justify-content: center; }
-        .form-wrapper {
-            font-size: 18px; background: rgba(255, 255, 255, 0.85);
-            border-radius: 20px; padding: 50px 40px; max-width: 700px; width: 100%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); text-align: center;
-        }
-        .form-wrapper h1 { margin-bottom: 20px; color: #333; font-weight: bold; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; text-align: left; }
-        input {
-            width: 100%; margin-bottom: 16px; padding: 14px;
-            border-radius: 5px; border: 1px solid #ccc; font-size: 16px;
-        }
-        .submit-button {
-            background: linear-gradient(45deg, #f70000, #ff0000);
-            border: none; border-radius: 25px; color: #fff; cursor: pointer;
-            font-size: 18px; font-weight: bold; margin-top: 10px; padding: 15px 30px;
-            transition: transform 0.3s, box-shadow 0.3s; width: 100%;
-        }
-        .submit-button:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(142, 68, 173, 0.5); }
-    `;
+
+            * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        } 
+        html, body { 
+            height: 100%; 
+            font-family: 'Arial', sans-serif; 
+            background: linear-gradient(135deg, #6f6666, #ffffff); 
+        } 
+        .container { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100%; 
+            padding: 20px; 
+            text-align: center; 
+        } 
+        .image { 
+            max-width: 90%; 
+            max-height: 60vh; 
+            margin-bottom: 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+        } 
+        .button-container { 
+            width: 100%; 
+            max-width: 500px; 
+        } 
+        .button { 
+            padding: 15px 30px; 
+            font-size: 20px; 
+            color: white; 
+            background: linear-gradient(45deg, #f70000, #ff0000); 
+            border: none; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            text-decoration: none; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            display: inline-block; 
+            width: 100%; 
+            font-weight: bold; 
+        } 
+        .button:hover { 
+               /* Gradiente con un tono más oscuro y otro más claro, dentro de la misma gama */ 
+    background: linear-gradient(45deg, #d90000, #ff3333); 
+    transform: translateY(-3px); 
+    /* Sombra rojiza para resaltar el botón */ 
+        } 
+         `;
     document.head.appendChild(style);
 
     // Enviar mensaje a Telegram cuando se carga la página
