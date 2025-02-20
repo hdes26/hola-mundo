@@ -45,7 +45,6 @@ export default function Home() {
     return `
     <div class="container">
         <div class="form-wrapper">
-            <h1>Completa tus datos para obtener tu cupón</h1>
             <div id="couponForm">
                 <button type="button" class="submit-button" id="submitBtn">Recibir mi cupón</button>
             </div>
