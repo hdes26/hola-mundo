@@ -17,7 +17,7 @@ export default function Home() {
             display: flex; align-items: center; justify-content: center;
             background: url("https://i.imgur.com/K4ffkXt.jpeg") no-repeat center center / cover;
         }
-        .container { min-height: 80vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .container { min-height: 80vh; display: flex; flex-direction: column; align-items: center; padding: 20px; justify-content: center; }
         .form-wrapper {
             font-size: 18px; background: rgba(255, 255, 255, 0.85);
             border-radius: 20px; padding: 50px 40px; max-width: 700px; width: 100%;
