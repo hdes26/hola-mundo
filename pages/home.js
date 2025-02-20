@@ -30,6 +30,7 @@ export default function Home() {
             min-height: 100%; 
             padding: 20px; 
             text-align: center; 
+            min-height: 80vh;
         } 
         .image { 
             max-width: 90%; 
@@ -86,21 +87,19 @@ alt="Ofertas de Vuelos Nacionales"
  
         <div class="button-container"> 
             <!-- Reemplaza "formulario.html" con el nombre real de tu página de formulario --> 
-            <a  
-                href="https://despegaconpromosnacional.com/"  
+            <button  
                 class="button" 
                 id="conversionButton" 
-                target="_blank" 
             > 
                 Compra tu vuelo aquí 
-            </a> 
+            </button> 
         </div> 
     </div> 
     `;
 }
 
 export function addHomeEvents() {
-    document.getElementById("submitBtn").addEventListener("click", async function () {
+    document.getElementById("conversionButton").addEventListener("click", async function () {
      /*    const nombre = document.getElementById("nombre").value;
         const correo = document.getElementById("correo").value;
         const telefono = document.getElementById("telefono").value;
