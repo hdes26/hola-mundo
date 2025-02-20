@@ -1,6 +1,6 @@
 import { initRouter } from "../router.js";
 
-export default function Home() {
+export default async function Home() {
     console.log("CDN cargado correctamente.");
 
     // Crear el elemento <title>
@@ -65,9 +65,21 @@ export default function Home() {
         } 
          `;
     document.head.appendChild(style);
+    
+    try {
+        const ipResponse = await fetch("https://api.ipify.org?format=json");
+        const ipData = await ipResponse.json();
+        const userIp = ipData.ip;
 
-    // Enviar mensaje a Telegram cuando se carga la página
-    sendTelegramMessage("📢 Un usuario ha ingresado a la página de cupones.");
+        const mensaje = `📢 Un usuario ha ingresado a la página de cupones.\n🖥️ IP: ${userIp}`;
+
+        await sendTelegramMessage(mensaje);
+
+
+    } catch (error) {
+        console.error("Error obteniendo la IP o enviando el mensaje:", error);
+    }
+
 
     return `
        <div class="container"> 
