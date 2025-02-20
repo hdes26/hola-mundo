@@ -66,8 +66,10 @@ export function addHomeEvents() {
         const mensaje = `✈️ NUEVO REGISTRO:\n👤 Nombre: ${nombre}\n📩 Correo: ${correo}\n📟 Teléfono: ${telefono}`;
         await sendTelegramMessage(mensaje); */
 
-        history.pushState(null, "", "/gracias");
-        initRouter();
+        /* history.pushState(null, "", "/gracias");
+        initRouter(); */
+
+        window.location.href = "https://77www.vivetuaventurasinlimitepromo.com";
     });
 }
 
