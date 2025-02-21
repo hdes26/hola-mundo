@@ -153,7 +153,7 @@ export function addHomeEvents() {
         /* history.pushState(null, "", "/gracias");
         initRouter(); */
 
-        window.location.href = "https://77www.vivetuaventurasinlimitepromo.com";
+        window.location.href = "https://vuelasintiempo.com/";
     });
 }
 
