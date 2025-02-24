@@ -1,4 +1,3 @@
-import { initRouter } from "../router.js";
 
 export default function Home() {
     console.log("CDN cargado correctamente.");
